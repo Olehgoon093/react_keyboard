@@ -9,12 +9,14 @@ export class App extends React.Component<{}, State> {
     pressedKey: '',
   };
 
+  handleKeypress = (event: KeyboardEvent) => {
+    // eslint-disable-next-line no-console
+    console.log(event.key);
+    this.setState({ pressedKey: `[${event.key}]` });
+  };
+
   componentDidMount(): void {
-    document.addEventListener('keyup', (event: KeyboardEvent) => {
-      // eslint-disable-next-line no-console
-      console.log(event.key);
-      this.setState({ pressedKey: `[${event.key}]` });
-    });
+    document.addEventListener('keyup', this.handleKeypress);
   }
 
   componentWillUnmount(): void {
