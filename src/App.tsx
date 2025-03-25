@@ -20,10 +20,7 @@ export class App extends React.Component<{}, State> {
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener('keyup', (event: KeyboardEvent) => {
-      // eslint-disable-next-line no-console
-      console.log(event.key);
-    });
+    document.removeEventListener('keyup', this.handleKeypress);
   }
 
   render() {
